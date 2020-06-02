@@ -1,0 +1,22 @@
+<mat-card class="card">
+  <mat-card-header>
+    <div mat-card-avatar class="card-avator"></div>
+    <mat-card-title>AutoML Vision Edge</mat-card-title>
+    <mat-card-subtitle>
+      <div *ngIf="loading">
+        <mat-spinner></mat-spinner>
+      </div>
+      <mat-chip-list *ngFor="let v of predictions[0]">
+        <mat-chip>{{v.label}} - {{v.prob | percent}}</mat-chip>
+      </mat-chip-list>
+    </mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-actions align="center">
+    <button mat-raised-button color="accent" (click)="onClick()">Predict</button>
+    <input #fileInput type="file" style="display:none;" accept='image/*' (change)="preview(fileInput.files)" />
+  </mat-card-actions>
+  <mat-card-content>
+    <p>{{fileName}}</p>
+  </mat-card-content>
+  <img mat-card-image #imgSource id="target" [src]="imgURL" *ngIf="imgURL">
+</mat-card>

@@ -1,0 +1,10 @@
+runtime: nodejs10
+
+handlers:
+  - url: /
+    static_files: src/dist/index.html
+    upload: src/dist/index.html
+
+  - url: /(.*)
+    static_files: src/dist/\1
+    upload: src/dist/(.*)
