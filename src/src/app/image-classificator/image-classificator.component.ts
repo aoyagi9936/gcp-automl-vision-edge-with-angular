@@ -11,12 +11,13 @@ declare function classify(): Promise<Prediction>;
 })
 export class ImageClassificatorComponent implements OnInit {
 
+  @ViewChild('imgSource', { static: true }) imgSource: ElementRef;
+  @ViewChild('fileInput', { static: true }) fileInput: ElementRef;
+
   predictions: Array<Prediction> = new Array();
   model: any;
   imgURL: any;
   fileName: string;
-  @ViewChild('imgSource') imgSource: ElementRef;
-  @ViewChild('fileInput') fileInput: ElementRef;
   loading = false;
 
   constructor() { }
@@ -48,12 +49,12 @@ export class ImageClassificatorComponent implements OnInit {
     reader.readAsDataURL(files[0]);
     reader.onload = (_event) => {
       this.imgURL = reader.result;
-      classify()
+      setTimeout(async () => await classify()
         .then(v => {
           this.predictions = new Array();
           this.predictions.push(v);
           this.loading = false;
-        });
+        }));
     }
   }
 
