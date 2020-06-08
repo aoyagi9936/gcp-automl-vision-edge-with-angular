@@ -1,9 +1,9 @@
 # gcp-automl-vision-edge-with-angular
 
-![title](https://github.com/aoyagi9936/gcp-automl-vision-edge-with-angular/blob/master/src/src/assets/images/card_title.png?raw=true, "French bulldog or Pug")
-
 This application uses a model exported from Google Cloud Automl Vision to determine if a given image is a French bulldog or a pug.  
-The classification is done in the browser and there is no communication to the server.
+The classification is done in the browser and there is no communication to the server.  
+
+<img src="https://github.com/aoyagi9936/gcp-automl-vision-edge-with-angular/blob/master/src/src/assets/images/card_title.png?raw=true" width="400px">
 
 ## Setup Local Development
 
