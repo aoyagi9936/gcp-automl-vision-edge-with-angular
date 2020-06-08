@@ -1,13 +1,29 @@
 # gcp-automl-vision-edge-with-angular
 
-## The procedure that exported the model
+[title](https://github.com/aoyagi9936/gcp-automl-vision-edge-with-angular/blob/master/src/src/assets/images/card_title.png?raw=true)
 
-1. Setup `import.csv`
-Replace string `<YOUR_CLOUD_STORAGE_BUCKET>` inside `dataset/training/import.csv`
+This application uses a model exported from Google Cloud Automl Vision to determine if a given image is a French bulldog or a pug.  
+The classification is done in the browser and there is no communication to the server.
 
-2. Upload training dataset
+## Setup Local Development
+
 ``` shell
-$ cd dataset/training
-$ gsutil -m rsync -rd . <YOUR_CLOUD_STORAGE_BUCKET>
+$ cd dev
+$ docker-compose up app-init # setup node_modules
+$ docker-compose up ng-serve
 ```
 
+Access to `localhost:4200` with a brawser.
+
+## Deploy to Google AppEngine
+
+``` shell
+$ cd dev
+$ docker-compose up ng-build-prod
+``
+
+``` shell
+$ cd ../
+$ gcloud app deploy
+$ gcloud app browse
+``
