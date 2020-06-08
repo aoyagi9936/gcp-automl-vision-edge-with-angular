@@ -17,13 +17,15 @@ Access to `localhost:4200` with a brawser.
 
 ## Deploy to Google AppEngine
 
+1. Build Angular App.  
 ``` shell
 $ cd dev
 $ docker-compose up ng-build-prod
-``
+```
 
+2. Deploy to AppEngine.  
 ``` shell
 $ cd ../
 $ gcloud app deploy
 $ gcloud app browse
-``
+```
